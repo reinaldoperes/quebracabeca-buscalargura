@@ -1,6 +1,8 @@
 var matriz_correta = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,null]]
 
 var matriz_estado = [[1,2,3,4], [5,10,6,7], [9,null,11,8], [13,14,15,12]]
+// var matriz_estado = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,null,15]]
+// var matriz_estado = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,null]]
 
 qtd_linhas = 4
 qtd_colunas = 4
@@ -25,7 +27,16 @@ class No {
 
 class Busca {
     testeObjetivo(estado) {
-        return estado === matriz_correta;
+        for (let i = 0; i < qtd_linhas; i++) {
+            for (let j = 0; j < qtd_colunas; j++) {
+                if (estado[i][j] != matriz_correta[i][j]) {        
+                    console.log('Matriz estado analisada: ', estado)      
+                    return false;   
+                } 
+            }           
+        }
+        console.log('Matriz estado final: ', estado)
+        return true;
     }
 
     sucessor(no) {        
@@ -95,8 +106,9 @@ class Busca {
     buscaLargura(raiz) {
         listaNo.push(raiz);
         while (listaNo.length > 0) {
-            let no = listaNo.splice(0)[0];
-            if (this.testeObjetivo(no)) return no;
+        // for (let index = 0; index < 4; index++) {
+            let no = listaNo.shift();
+            if (this.testeObjetivo(no.estado)) return no;
             else this.sucessor(no);
         }
     }
@@ -107,4 +119,6 @@ var listaNo = []
 var noPai = new No()
 
 var busca = new Busca()
-busca.buscaLargura(noPai)
+let obj = busca.buscaLargura(noPai)
+
+console.log('Profundidade: ', obj.profundidade)
