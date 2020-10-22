@@ -30,7 +30,7 @@ class Busca {
         for (let i = 0; i < qtd_linhas; i++) {
             for (let j = 0; j < qtd_colunas; j++) {
                 if (estado[i][j] != matriz_correta[i][j]) {        
-                    console.log('Matriz estado analisada: ', estado)      
+                    // console.log('Matriz estado analisada: ', estado)      
                     return false;   
                 } 
             }           
@@ -55,6 +55,7 @@ class Busca {
 
             let noFilho = new No(no, no.custo + 1, no.profundidade + 1, "B", novoEstado)
             listaNo.push(noFilho)
+            console.log(noFilho)
         }
         //direita
         if (posicaoNull[1] > 0){
@@ -70,6 +71,7 @@ class Busca {
             
             let noFilho = new No(no, no.custo + 1, no.profundidade + 1, "D", novoEstado)
             listaNo.push(noFilho)
+            console.log(noFilho)
         }
         //cima
         if (posicaoNull[0] < 3){
@@ -85,6 +87,7 @@ class Busca {
 
             let noFilho = new No(no, no.custo + 1, no.profundidade + 1, "C", novoEstado)
             listaNo.push(noFilho)
+            console.log(noFilho)
         }
         //esquerda
         if (posicaoNull[1] < 3){
@@ -100,7 +103,9 @@ class Busca {
 
             let noFilho = new No(no, no.custo + 1, no.profundidade + 1, "E", novoEstado)
             listaNo.push(noFilho)
+            console.log(noFilho)
         }
+        console.log('\n======================\n')
     }
 
     buscaLargura(raiz) {
@@ -112,6 +117,37 @@ class Busca {
             else this.sucessor(no);
         }
     }
+
+    buscaProfundidade(raiz) {
+        listaNo.push(raiz);
+        while (listaNo.length > 0) {
+        // for (let index = 0; index < 4; index++) {
+            let no = listaNo.pop();
+            if (this.testeObjetivo(no.estado)) return no;
+            else this.sucessor(no);
+        }
+    }
+
+    buscaProfundidadeLimitada(raiz, l) {
+        listaNo.push(raiz);
+        while (listaNo[listaNo.length - 1].profundidade < l) {
+        // for (let index = 0; index < 4; index++) {            
+            let no = listaNo.pop();
+            if (this.testeObjetivo(no.estado)) return no;
+            else this.sucessor(no);
+        }
+    }
+
+    buscaAprIterativo(raiz) {
+        let n = null;
+        let l = 0;
+
+        while(true) {
+            n = buscaProfundidadeLimitada(raiz, l)
+            if(n == null) l++;
+            else return n;
+        }
+    }
 }
 
 var listaNo = []
@@ -119,6 +155,7 @@ var listaNo = []
 var noPai = new No()
 
 var busca = new Busca()
-let obj = busca.buscaLargura(noPai)
+// let obj = busca.buscaLargura(noPai)
+let obj = busca.buscaProfundidadeLimitada(noPai, 3)
 
-console.log('Profundidade: ', obj.profundidade)
+// console.log('Profundidade: ', obj.profundidade)
