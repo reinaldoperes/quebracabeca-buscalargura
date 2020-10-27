@@ -130,22 +130,36 @@ class Busca {
 
     buscaProfundidadeLimitada(raiz, l) {
         listaNo.push(raiz);
-        while (listaNo[listaNo.length - 1].profundidade < l) {
+        while (listaNo.length > 0) {
         // for (let index = 0; index < 4; index++) {            
             let no = listaNo.pop();
             if (this.testeObjetivo(no.estado)) return no;
-            else this.sucessor(no);
+            else if (no.profundidade < l) this.sucessor(no);
         }
+
+        return null;
     }
 
     buscaAprIterativo(raiz) {
-        let n = null;
         let l = 0;
 
         while(true) {
-            n = buscaProfundidadeLimitada(raiz, l)
+            let n = this.buscaProfundidadeLimitada(raiz, l)
             if(n == null) l++;
-            else return n;
+            else {
+                console.log("Profundidade atingida --> ", l)
+                return n;
+            }
+        }
+    }
+
+    buscaUniforme(raiz){
+        listaNo.push(raiz);
+        while (listaNo.length > 0) {
+        // for (let index = 0; index < 4; index++) {            
+            let no = listaNo.shift();
+            if (this.testeObjetivo(no.estado)) return no;
+            else this.sucessor(no);
         }
     }
 }
@@ -155,7 +169,11 @@ var listaNo = []
 var noPai = new No()
 
 var busca = new Busca()
-// let obj = busca.buscaLargura(noPai)
-let obj = busca.buscaProfundidadeLimitada(noPai, 3)
+
+//  let obj = busca.buscaLargura(noPai)
+//  let obj = busca.buscaProfundidadeLimitada(noPai, 25)
+let obj = busca.buscaAprIterativo(noPai)
+
+
 
 // console.log('Profundidade: ', obj.profundidade)
