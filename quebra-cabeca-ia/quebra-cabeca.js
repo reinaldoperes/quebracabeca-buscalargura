@@ -26,16 +26,17 @@ class No {
 }
 
 class Busca {
-    testeObjetivo(estado) {
+    testeObjetivo(no) {
         for (let i = 0; i < qtd_linhas; i++) {
             for (let j = 0; j < qtd_colunas; j++) {
-                if (estado[i][j] != matriz_correta[i][j]) {        
-                    // console.log('Matriz estado analisada: ', estado)      
+                if (no.estado[i][j] != matriz_correta[i][j]) {        
+                    // console.log('Matriz estado analisada: ', no.estado)      
                     return false;   
                 } 
             }           
         }
-        console.log('Matriz estado final: ', estado)
+        console.log('Matriz objetivo encontrada: ')
+        console.log(no)
         return true;
     }
 
@@ -113,7 +114,7 @@ class Busca {
         while (listaNo.length > 0) {
         // for (let index = 0; index < 4; index++) {
             let no = listaNo.shift();
-            if (this.testeObjetivo(no.estado)) return no;
+            if (this.testeObjetivo(no)) return no;
             else this.sucessor(no);
         }
     }
@@ -123,7 +124,7 @@ class Busca {
         while (listaNo.length > 0) {
         // for (let index = 0; index < 4; index++) {
             let no = listaNo.pop();
-            if (this.testeObjetivo(no.estado)) return no;
+            if (this.testeObjetivo(no)) return no;
             else this.sucessor(no);
         }
     }
@@ -133,7 +134,7 @@ class Busca {
         while (listaNo.length > 0) {
         // for (let index = 0; index < 4; index++) {            
             let no = listaNo.pop();
-            if (this.testeObjetivo(no.estado)) return no;
+            if (this.testeObjetivo(no)) return no;
             else if (no.profundidade < l) this.sucessor(no);
         }
 
@@ -156,9 +157,12 @@ class Busca {
     buscaUniforme(raiz){
         listaNo.push(raiz);
         while (listaNo.length > 0) {
-        // for (let index = 0; index < 4; index++) {            
+        // for (let index = 0; index < 4; index++) {     
+            listaNo.sort((a,b) => {
+                return a - b;
+            });
             let no = listaNo.shift();
-            if (this.testeObjetivo(no.estado)) return no;
+            if (this.testeObjetivo(no)) return no;
             else this.sucessor(no);
         }
     }
@@ -171,9 +175,8 @@ var noPai = new No()
 var busca = new Busca()
 
 //  let obj = busca.buscaLargura(noPai)
+//  let obj = busca.buscaProfundidade(noPai)
 //  let obj = busca.buscaProfundidadeLimitada(noPai, 25)
-let obj = busca.buscaAprIterativo(noPai)
+//  let obj = busca.buscaAprIterativo(noPai)
+//  let obj = busca.buscaUniforme(noPai)
 
-
-
-// console.log('Profundidade: ', obj.profundidade)
