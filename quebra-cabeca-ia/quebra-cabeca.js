@@ -1,12 +1,4 @@
-var matriz_correta = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,null]]
-
-var matriz_estado = [[1,2,3,4], [5,10,6,7], [9,null,11,8], [13,14,15,12]]
-// var matriz_estado = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,null,15]]
-// var matriz_estado = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,null]]
-
-qtd_linhas = 4
-qtd_colunas = 4
-
+//  ----> Função de busca da posição vazia
 function getNullIndex(matriz) {
     for (let i = 0; i < qtd_linhas; i++) {
         for (let j = 0; j < qtd_colunas; j++) {
@@ -15,6 +7,7 @@ function getNullIndex(matriz) {
     }
 }
 
+//  ----> Classe do nó
 class No {
     constructor(pai = null, custo = 0, profundidade = 0, acao = null, estado = matriz_estado) {
         this.pai = pai;
@@ -25,7 +18,9 @@ class No {
     }
 }
 
+//  ----> Classe dos algorítmos
 class Busca {
+    //  ----> Função de teste de objetivo
     testeObjetivo(no) {
         for (let i = 0; i < qtd_linhas; i++) {
             for (let j = 0; j < qtd_colunas; j++) {
@@ -40,6 +35,7 @@ class Busca {
         return true;
     }
 
+    //  ----> Função de criação dos nós sucessores
     sucessor(no) {        
         let posicaoNull = getNullIndex(no.estado)
         //baixo
@@ -109,6 +105,7 @@ class Busca {
         console.log('\n======================\n')
     }
 
+    //  ----> Algorítmo de busca em largura
     buscaLargura(raiz) {
         listaNo.push(raiz);
         while (listaNo.length > 0) {
@@ -119,6 +116,7 @@ class Busca {
         }
     }
 
+    //  ----> Algorítmo de busca em profundidade
     buscaProfundidade(raiz) {
         listaNo.push(raiz);
         while (listaNo.length > 0) {
@@ -129,6 +127,7 @@ class Busca {
         }
     }
 
+    //  ----> Algorítmo de busca em profundidade limitada
     buscaProfundidadeLimitada(raiz, l) {
         listaNo.push(raiz);
         while (listaNo.length > 0) {
@@ -141,6 +140,7 @@ class Busca {
         return null;
     }
 
+    //  ----> Algorítmo de busca em aprofundamento iterativo
     buscaAprIterativo(raiz) {
         let l = 0;
 
@@ -154,6 +154,7 @@ class Busca {
         }
     }
 
+    //  ----> Algorítmo de busca uniforme
     buscaUniforme(raiz){
         listaNo.push(raiz);
         while (listaNo.length > 0) {
@@ -168,15 +169,32 @@ class Busca {
     }
 }
 
+//  ----> Lista de nós
 var listaNo = []
 
+//  ----> Nó raiz
 var noPai = new No()
 
 var busca = new Busca()
 
-//  let obj = busca.buscaLargura(noPai)
+
+//  Matriz correta
+var matriz_correta = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,null]]
+
+//  Matrizes para testar
+var matriz_estado = [[1,2,3,4], [5,10,6,7], [9,null,11,8], [13,14,15,12]]
+// var matriz_estado = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,null,15]]
+// var matriz_estado = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,null]]
+
+//  Estrutura da matriz
+var qtd_linhas = 4
+var qtd_colunas = 4
+
+//  ----> Algorítmos, só descomentar
+
+ let obj = busca.buscaLargura(noPai)
 //  let obj = busca.buscaProfundidade(noPai)
-//  let obj = busca.buscaProfundidadeLimitada(noPai, 25)
+//  let obj = busca.buscaProfundidadeLimitada(noPai, 5)
 //  let obj = busca.buscaAprIterativo(noPai)
 //  let obj = busca.buscaUniforme(noPai)
 
