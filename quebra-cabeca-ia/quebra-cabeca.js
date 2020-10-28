@@ -1,3 +1,7 @@
+// Reinaldo Porte Peres – 580554
+// João Pedro Santos Oliveira – 585327
+// Matheus Ferreira de Favari – 579718
+
 var matriz_correta = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,null]]
 
 var matriz_estado = [[1,2,3,4], [5,10,6,7], [9,null,11,8], [13,14,15,12]]
@@ -180,3 +184,4 @@ var busca = new Busca()
 //  let obj = busca.buscaAprIterativo(noPai)
 //  let obj = busca.buscaUniforme(noPai)
 
+// Para executar é só abrir o terminal e digitar: node caminho_do_arquivo (tendo em vista que o nodejs está instalado no pc)
