@@ -25,11 +25,12 @@ function getNullIndex(matriz) {
 
 //  ----> Classe do nó
 class No {
-    constructor(pai = null, custo = 0, profundidade = 0, acao = null, estado = matriz_estado) {
+    constructor(pai = null, custo = 0, profundidade = 0, acao = null, h = 0, estado = matriz_estado) {
         this.pai = pai;
         this.custo = custo;
         this.profundidade = profundidade;
         this.acao = acao;
+        this.h = h;
         this.estado = estado;
     }
 }
@@ -49,6 +50,30 @@ class Busca {
         console.log('Matriz objetivo encontrada: ')
         console.log(no)
         return true;
+    }
+
+    h1(no) {
+        let qtd_fora_lugar;
+        for (let i = 0; i < qtd_linhas; i++) {
+            for (let j = 0; j < qtd_colunas; j++) {
+                if (no.estado[i][j] != matriz_correta[i][j]) {        
+                    qtd_fora_lugar++;  
+                } 
+            }           
+        }
+        no.h = qtd_fora_lugar;
+    }
+
+    h2(no) {
+        let soma_movimentos;
+        for (let i = 0; i < qtd_linhas; i++) {
+            for (let j = 0; j < qtd_colunas; j++) {
+                if (no.estado[i][j] != matriz_correta[i][j]) {        
+                    qtd_fora_lugar++;  
+                } 
+            }           
+        }
+        return qtd_fora_lugar;
     }
 
     //  ----> Função de criação dos nós sucessores
@@ -176,7 +201,43 @@ class Busca {
         while (listaNo.length > 0) {
         // for (let index = 0; index < 4; index++) {     
             listaNo.sort((a,b) => {
-                return a - b;
+                return a.custo - b.custo;
+            });
+            let no = listaNo.shift();
+            if (this.testeObjetivo(no)) return no;
+            else this.sucessor(no);
+        }
+    }
+
+    //  ----> Algorítmo de busca GME
+    buscaGME(raiz){
+        listaNo.push(raiz);
+        while (listaNo.length > 0) {
+        // for (let index = 0; index < 4; index++) {  
+            listaNo.forEach(n => {
+                this.h1(n);
+                //this.h2(n);
+            }); 
+            listaNo.sort((a,b) => {
+                return a.h - b.h;
+            });
+            let no = listaNo.shift();
+            if (this.testeObjetivo(no)) return no;
+            else this.sucessor(no);
+        }
+    }
+
+    //  ----> Algorítmo de busca A*
+    buscaEstrela(raiz){
+        listaNo.push(raiz);
+        while (listaNo.length > 0) {
+        // for (let index = 0; index < 4; index++) {  
+            listaNo.forEach(n => {
+                this.h1(n);
+                //this.h2(n);
+            });
+            listaNo.sort((a,b) => {
+                return (a.h + a.custo) - (b.h + b.custo);
             });
             let no = listaNo.shift();
             if (this.testeObjetivo(no)) return no;
@@ -195,10 +256,11 @@ var busca = new Busca()
 
 //  ----> Algoritmos, só descomentar para executar
 
-busca.buscaLargura(noPai)
+//busca.buscaLargura(noPai)
 //busca.buscaProfundidade(noPai)
 //busca.buscaProfundidadeLimitada(noPai, 5)
 //busca.buscaAprIterativo(noPai)
 //busca.buscaUniforme(noPai)
+busca.buscaGME(noPai)
 
 // Para executar é só abrir o terminal e digitar: node caminho_do_arquivo (tendo em vista que o nodejs está instalado no pc)
