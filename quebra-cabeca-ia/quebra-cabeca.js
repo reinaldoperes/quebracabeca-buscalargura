@@ -236,7 +236,11 @@ class Busca {
     buscaGME(raiz){
         listaNo.push(raiz);
         while (listaNo.length > 0) {
-            listaNo.forEach(n => {
+            let list = listaNo.filter(l => {
+                return l.h === 0;
+            })
+            
+            list.forEach(n => {
                 this.h1(n);
                 //this.h2(n);
 
@@ -252,7 +256,11 @@ class Busca {
     buscaEstrela(raiz){
         listaNo.push(raiz);
         while (listaNo.length > 0) { 
-            listaNo.forEach(n => {
+            let list = listaNo.filter(l => {
+                return l.h === 0;
+            })
+            
+            list.forEach(n => {
                 this.h1(n);
                 //this.h2(n);
 
@@ -273,14 +281,26 @@ var noPai = new No()
 
 var busca = new Busca()
 
+let begin=Date.now(); //    ---->Começo da execução
+
 //  ----> Algoritmos, só descomentar para executar
 
+//  ----> Sem informação
 //busca.buscaLargura(noPai)
 //busca.buscaProfundidade(noPai)
 //busca.buscaProfundidadeLimitada(noPai, 5)
 //busca.buscaAprIterativo(noPai)
 //busca.buscaUniforme(noPai)
-//busca.buscaGME(noPai)
-busca.buscaEstrela(noPai)
+
+//  ----> Com informação
+busca.buscaGME(noPai)
+//busca.buscaEstrela(noPai)
+
+
+let end= Date.now(); //    ---->Fim da execução
+
+let tempo_total = (end-begin)/1000+"seg";
+
+console.log('\n\n Tempo de execução: ', tempo_total)
 
 // Para executar é só abrir o terminal e digitar: node caminho_do_arquivo (tendo em vista que o nodejs está instalado no pc)
