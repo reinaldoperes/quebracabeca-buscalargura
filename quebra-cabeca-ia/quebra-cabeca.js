@@ -18,106 +18,106 @@ var matriz_correta = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,null]]
 //  2c
 // var matriz_estado = [[1,2,3,4], [5,6,7,8], [9,10,null,12], [13,14,11,15]]
 //  2d
-var matriz_estado = [[1,2,3,4], [5,6,7,8], [9,10,null,11], [13,14,15,12]]
+// var matriz_estado = [[1,2,3,4], [5,6,7,8], [9,10,null,11], [13,14,15,12]]
 //  #endregion
 
 //  #region matrizes d4
 //  4a
-//var matriz_estado = [[1,2,null,4], [5,6,3,8], [9,10,7,11], [13,14,15,12]]
+// var matriz_estado = [[1,2,null,4], [5,6,3,8], [9,10,7,11], [13,14,15,12]]
 //  4b
-//var matriz_estado = [[1,2,null,3], [5,6,7,4], [9,10,11,8], [13,14,15,12]]
+// var matriz_estado = [[1,2,null,3], [5,6,7,4], [9,10,11,8], [13,14,15,12]]
 //  4c
-//var matriz_estado = [[1,2,3,4], [5,6,7,8], [9,10,15,11], [13,14,12,null]]
+// var matriz_estado = [[1,2,3,4], [5,6,7,8], [9,10,15,11], [13,14,12,null]]
 //  4d
-//var matriz_estado = [[1,2,3,4], [5,6,7,8], [9,11,null,12], [13,10,14,15]]
+// var matriz_estado = [[1,2,3,4], [5,6,7,8], [9,11,null,12], [13,10,14,15]]
 //  #endregion
 
 //  #region matrizes d6
 //  6a
-//var matriz_estado = [[1,2,3,4], [5,10,6,8], [9,4,7,11], [13,null,15,12]]
+// var matriz_estado = [[1,2,3,4], [5,10,6,8], [9,14,7,11], [13,null,15,12]]
 //  6b
-//var matriz_estado = [[1,2,3,4], [5,6,7,8], [9,10,null,15], [13,14,12,11]]
+// var matriz_estado = [[1,2,3,4], [5,6,7,8], [9,10,null,15], [13,14,12,11]]
 //  6c
-//var matriz_estado = [[1,2,3,4], [5,12,6,7], [9,11,null,8], [13,14,15,12]]
+// var matriz_estado = [[1,2,3,4], [5,10,6,7], [9,11,null,8], [13,14,15,12]]
 //  6d
-//var matriz_estado = [[1,2,3,4], [5,6,7,8], [13,9,11,12], [10,null,14,15]]
+// var matriz_estado = [[1,2,3,4], [5,6,7,8], [13,9,11,12], [10,null,14,15]]
 //  #endregion
 
 //  #region matrizes d8
 //  8a
-//var matriz_estado = [[1,2,3,4], [5,6,7,8], [13,10,null,11], [14,9,15,12]]
+// var matriz_estado = [[1,2,3,4], [5,6,7,8], [13,10,null,11], [14,9,15,12]]
 //  8b
-//var matriz_estado = [[null,1,7,3], [5,2,6,4], [9,10,11,8], [13,14,15,12]]
+// var matriz_estado = [[null,1,7,3], [5,2,6,4], [9,10,11,8], [13,14,15,12]]
 //  8c
-//var matriz_estado = [[1,6,2,3], [5,null,8,4], [9,10,7,12], [13,14,11,15]]
+// var matriz_estado = [[1,6,2,3], [5,null,8,4], [9,10,7,12], [13,14,11,15]]
 //  8d
-//var matriz_estado = [[1,2,3,4], [5,6,11,7], [null,14,10,8], [9,13,15,12]]
+// var matriz_estado = [[1,2,3,4], [5,6,11,7], [null,14,10,8], [9,13,15,12]]
 //  #endregion
 
 //  #region matrizes d10
 //  10a
-//var matriz_estado = [[1,2,7,3], [5,6,4,8], [9,10,15,11], [13,null,14,12]]
+// var matriz_estado = [[1,2,7,3], [5,6,4,8], [9,10,15,11], [13,null,14,12]]
 //  10b
-//var matriz_estado = [[1,6,2,7], [5,null,4,3], [9,10,11,8], [13,14,15,12]]
+// var matriz_estado = [[1,6,2,7], [5,null,4,3], [9,10,11,8], [13,14,15,12]]
 //  10c
-//var matriz_estado = [[1,2,4,11], [5,6,3,null], [9,10,8,7], [13,14,15,12]]
+// var matriz_estado = [[1,2,4,11], [5,6,3,null], [9,10,8,7], [13,14,15,12]]
 //  10d
-//var matriz_estado = [[1,2,8,3], [5,10,6,4], [null,9,7,12], [13,14,11,15]]
+// var matriz_estado = [[1,2,8,3], [5,10,6,4], [null,9,7,12], [13,14,11,15]]
 //  #endregion
 
 //  #region matrizes d12
 //  12a
-//var matriz_estado = [[1,2,3,4], [5,null,10,7], [14,11,6,8], [9,13,15,12]]
+// var matriz_estado = [[1,2,3,4], [5,null,10,7], [14,11,6,8], [9,13,15,12]]
 //  12b
-//var matriz_estado = [[5,1,3,4], [9,2,7,8], [null,14,10,11], [6,13,15,12]]
+// var matriz_estado = [[5,1,3,4], [9,2,7,8], [null,14,10,11], [6,13,15,12]]
 //  12c
-//var matriz_estado = [[1,2,3,4], [5,7,11,8], [9,10,12,15], [13,14,6,null]]
+// var matriz_estado = [[1,2,3,4], [5,7,11,8], [9,10,12,15], [13,14,6,null]]
 //  12d
-//var matriz_estado = [[1,3,7,4], [5,2,8,null], [9,6,12,15], [13,10,14,11]]
+// var matriz_estado = [[1,3,7,4], [5,2,8,null], [9,6,12,15], [13,10,14,11]]
 //  #endregion
 
 //  #region matrizes d14
 //  14a
-//var matriz_estado = [[1,3,null,6], [5,10,2,4], [9,11,8,7], [13,14,15,12]]
+// var matriz_estado = [[1,3,null,6], [5,10,2,4], [9,11,8,7], [13,14,15,12]]
 //  14b
-//var matriz_estado = [[1,2,3,4], [5,6,11,null], [10,15,14,7], [9,13,12,8]]
+// var matriz_estado = [[1,2,3,4], [5,6,11,null], [10,15,14,7], [9,13,12,8]]
 //  14c
-//var matriz_estado = [[1,2,11,3], [6,null,7,4], [5,10,12,8], [9,13,14,15]]
+// var matriz_estado = [[1,2,11,3], [6,null,7,4], [5,10,12,8], [9,13,14,15]]
 //  14d
-//var matriz_estado = [[1,2,7,3], [5,6,12,4], [13,11,null,8], [10,9,14,15]]
+// var matriz_estado = [[1,2,7,3], [5,6,12,4], [13,11,null,8], [10,9,14,15]]
 //  #endregion
 
 //  #region matrizes d16
 //  16a
-//var matriz_estado = [[5,1,2,4], [9,6,3,7], [13,10,11,12], [14,null,8,15]]
+// var matriz_estado = [[5,1,2,4], [9,6,3,7], [13,10,11,12], [14,null,8,15]]
 //  16b
-//var matriz_estado = [[1,2,null,8], [5,6,12,3], [9,10,4,15], [13,14,7,11]]
+// var matriz_estado = [[1,2,null,8], [5,6,12,3], [9,10,4,15], [13,14,7,11]]
 //  16c
-//var matriz_estado = [[1,2,4,8], [5,6,3,12], [13,9,null,15], [10,14,7,11]]
+// var matriz_estado = [[1,2,4,8], [5,6,3,12], [13,9,null,15], [10,14,7,11]]
 //  16d
-//var matriz_estado = [[1,3,7,4], [5,2,8,null], [10,6,14,12], [9,13,15,11]]
+// var matriz_estado = [[1,3,7,4], [5,2,8,null], [10,6,14,12], [9,13,15,11]]
 //  #endregion
 
 //  #region matrizes d18
 //  18a
-//var matriz_estado = [[5,3,1,4], [6,null,2,7], [14,10,11,8], [9,13,15,12]]
+// var matriz_estado = [[5,3,1,4], [6,null,2,7], [14,10,11,8], [9,13,15,12]]
 //  18b
-//var matriz_estado = [[1,3,6,4], [5,2,11,7], [13,14,9,8], [10,null,15,12]]
+// var matriz_estado = [[1,3,6,4], [5,2,11,7], [13,14,9,8], [10,null,15,12]]
 //  18c
-//var matriz_estado = [[1,9,6,3], [10,null,2,4], [5,12,7,8], [13,14,11,15]]
+// var matriz_estado = [[1,9,6,3], [10,null,2,4], [5,12,7,8], [13,14,11,15]]
 //  18d
-//var matriz_estado = [[2,3,null,4], [1,7,8,12], [5,10,6,15], [9,13,11,14]]
+// var matriz_estado = [[2,3,null,4], [1,7,8,12], [5,10,6,15], [9,13,11,14]]
 //  #endregion
 
 //  #region matrizes d20
 //  20a
-//var matriz_estado = [[5,1,2,4], [11,9,3,7], [13,6,null,8], [10,14,12,15]]
+// var matriz_estado = [[5,1,2,4], [11,9,3,7], [13,6,null,8], [10,14,12,15]]
 //  20b
-//var matriz_estado = [[5,1,2,3], [10,6,4,null], [13,11,7,8], [9,14,15,12]]
+// var matriz_estado = [[5,1,2,3], [10,6,4,null], [13,11,7,8], [9,14,15,12]]
 //  20c
-//var matriz_estado = [[1,2,3,4], [9,5,6,8], [12,7,11,15], [13,null,14,10]]
+// var matriz_estado = [[1,2,3,4], [9,5,6,8], [12,7,11,15], [13,null,14,10]]
 //  20d
-//var matriz_estado = [[1,8,6,3], [5,2,7,4], [10,15,14,11], [9,null,13,12]]
+var matriz_estado = [[1,8,6,3], [5,2,7,4], [10,15,14,11], [9,null,13,12]]
 //  #endregion
 
 //  ----> Array com as posições corretas dos números
@@ -359,7 +359,7 @@ class Busca {
             
             list.forEach(n => {
                 this.h1(n);
-                //this.h2(n);
+                // this.h2(n);
 
                 setHeuristicaPrioridade(n);
             });
@@ -378,7 +378,7 @@ class Busca {
             })
             
             list.forEach(n => {
-                //this.h1(n);
+                // this.h1(n);
                 this.h2(n);
 
                 setHeuristicaPrioridade(n, n.custo);
@@ -403,14 +403,14 @@ let begin = Date.now(); //    ---->Começo da execução
 //  ----> Algoritmos, só descomentar para executar
 
 //  ----> Sem informação
-//busca.buscaLargura(noPai)
-//busca.buscaProfundidade(noPai)
-//busca.buscaProfundidadeLimitada(noPai, 5)
-//busca.buscaAprIterativo(noPai)
-//busca.buscaUniforme(noPai)
+// busca.buscaLargura(noPai)
+// busca.buscaProfundidade(noPai)
+// busca.buscaProfundidadeLimitada(noPai, 5)
+// busca.buscaAprIterativo(noPai)
+// busca.buscaUniforme(noPai)
 
 //  ----> Com informação
-//busca.buscaGME(noPai)
+// busca.buscaGME(noPai)
 busca.buscaEstrela(noPai)
 
 
